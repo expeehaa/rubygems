@@ -592,6 +592,11 @@ EOF
       @git_present = Bundler.which("git") || Bundler.which("git.exe")
     end
 
+    def hg_present?
+      return @hg_present if defined?(@hg_present)
+      @hg_present = Bundler.which("hg") || Bundler.which("hg.exe")
+    end
+
     def feature_flag
       @feature_flag ||= FeatureFlag.new(VERSION)
     end
